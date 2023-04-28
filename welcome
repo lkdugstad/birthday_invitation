@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Party RSVP</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		header {
+			background-color: #3F51B5;
+			color: #fff;
+			text-align: center;
+			padding: 1rem;
+		}
+		h1 {
+			margin: 0;
+			font-size: 3rem;
+		}
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 1rem;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.description {
+			flex-basis: 50%;
+			text-align: justify;
+		}
+		.image {
+			flex-basis: 45%;
+			text-align: center;
+		}
+		.image img {
+			max-width: 100%;
+			height: auto;
+			border-radius: 1rem;
+			box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
+		}
+		@media screen and (max-width: 768px) {
+			.container {
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+			}
+			.description {
+				flex-basis: 100%;
+				margin-top: 2rem;
+			}
+			.image {
+				flex-basis: 100%;
+				margin-bottom: 2rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Party RSVP</h1>
+	</header>
+	<div class="container">
+		<div class="description">
+			<h2>Welcome to the party!</h2>
+			<p>We're excited to invite you to our upcoming party on Saturday, May 28th at 7:00 pm. The party will be held at our backyard and will be a casual get-together with drinks and snacks. We hope you can make it!</p>
+			<p>Please RSVP using the form below by May 25th so we can prepare accordingly.</p>
+		</div>
+		<div class="image">
+			<img src="https://via.placeholder.com/400x300" alt="Party Image">
+		</div>
+	</div>
+	<div class="container">
+		<form>
+			<h2>RSVP</h2>
+			<p>Will you attend the party?</p>
+			<input type="radio" id="yes" name="attend" value="yes">
+			<label for="yes">Yes</label><br>
+			<input type="radio" id="no" name="attend" value="no">
+			<label for="no">No</label><br><br>
+			<div id="partner-details">
+				<p>Will you bring a partner?</p>
+				<input type="radio" id="partner-yes" name="partner" value="yes">
+				<label for="partner-yes">Yes</label><br>
+				<input type="radio" id="partner-no" name="partner" value="no">
+				<label for="partner-no">No</label><br><br>
+				<div id="partner-name">
+					<label for="partner-name-input">Partner's Name:</label>
+					<input type="text
+					id="partner-name-input" name="partner-name"><br><br>
+				</div>
+			</div>
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+
+	<script>
+		// show/hide partner details based on user selection
+		var partnerDetails = document.getElementById("partner-details");
+		var partnerName = document.getElementById("partner-name");
+		partnerDetails.style.display = "none";
+		partnerName.style.display = "none";
+		var partnerYes = document.getElementById("partner-yes");
+		partnerYes.addEventListener("click", function() {
+			partnerDetails.style.display = "block";
+			partnerName.style.display = "block";
+		});
+		var partnerNo = document.getElementById("partner-no");
+		partnerNo.addEventListener("click", function() {
+			partnerDetails.style.display = "block";
+			partnerName.style.display = "none";
+		});
+	</script>
+</body>
+</html>
